@@ -1,23 +1,32 @@
-import { FormsModule }   from '@angular/forms';
-
-import { routing } from './app-routing.module';
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-
-import { AppComponent } from "./app.component";
-import { LoginComponent } from "./login/login.component";
-
-import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import { AuthComponent } from './auth/auth.component';
-import { HomeComponent } from './home/home.component';
 
+import { AppMaterialModule } from './app-material/app-material.module';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AuthComponent, HomeComponent],
-  imports: [BrowserModule, routing,FormsModule, HttpClientModule, BrowserAnimationsModule,MatCardModule],
-  providers: [],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    LoginComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AppMaterialModule
+  ],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

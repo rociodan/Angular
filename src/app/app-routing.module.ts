@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
-import { RouterModule } from "@angular/router";
-import { AppComponent } from "./app.component";
-import { LoginComponent } from "./login/login.component";
+import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
-const appRoutes = [
-  { path: "", component: AppComponent, pathMatch: "full" },
-  { path: "login", component: LoginComponent, pathMatch: "full" },
+const routes: Routes = [
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: ''}
 ];
-export const routing = RouterModule.forRoot(appRoutes);
-
-const routes: Routes = [];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
