@@ -9,11 +9,14 @@ import { LoginComponent } from "./login/login.component";
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import { AuthComponent } from './auth/auth.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
-  imports: [BrowserModule, routing,FormsModule, HttpClientModule, BrowserAnimationsModule],
+  declarations: [AppComponent, LoginComponent, AuthComponent, HomeComponent],
+  imports: [BrowserModule, routing,FormsModule, HttpClientModule, BrowserAnimationsModule,MatCardModule],
   providers: [],
   bootstrap: [AppComponent]
 })

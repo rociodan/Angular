@@ -8,7 +8,36 @@
 --- 4.3 Servicio de Login (devolver observable/promesa resuelta "emulando" un login exitoso)
 --- 4.4 Compartir información con el resto de la aplicación sobre el usuario logeado
 --- 4.5 Redirigir al usuario a la página de Inicio
--- 5. Mostrar usuario logeado en la página principal -->
+-- 5. Mostrar usuario logeado en la página principal 
+- Ejercicio 2:
+-- 1. Crear modulo de autenticación (AuthModule) donde estará el AuthApiService, LoginComponent y LogoutComponent
+CoreModule
+-- AuthService
+--- metodo Login
+--- metodo Logout
+--- propiedad ReplaySubject (user$)
+ AuthModule
+-- AuthApiService -> Login (llamada http)
+-- LoginComponent
+-- LogoutComponent
+-- 2. Implementar Lazy Loading en el módulo de Autenticación, rutas:
+/auth -> /auth/login
+/auth/login = LoginComponent
+/auth/logout = LogoutComponent
+-- 3. Implementar Route Guard para la ruta de Logout
+-- 4. Crear PeopleModule con Lazy Loading (/people) (y sus propias rutas, de momento solo '')
+--- 4.1 Crear ruta /people con Route Guard
+--- 4.2 Crear PeopleService (que devuelva un listado de personas estatico, devolver un observable)
+--- 4.3 Crear PeopleListComponent (listado de personas obtenidas mediante el servicio)
+--- 4.4 Implementar Angular Material Data Tables (<table mat-table>), definir templates de columnas y filas
+--- 4.5 Implementar Filtros y Sorting (utilizando Angular Material)
+--- 4.6 Crear PeopleListToolbarComponent (componente utilizado como toolbar)
+--- 4.7 Implementar listado de columnas con (des)selección (comunicación vía servicio)
+-- 5. Crear PeopleDetailsComponent (pantalla de detalle de cada persona)
+--- 5.1 Crear ruta /people/:id con Route Guard
+--- 5.2 Mostrar información dentro de un formulario editable
+--- 5.3 Implementar Route Guard para no perder cambios
+--- 5.4 Implementar guardado de información (llamado http)-->
 
 
 <div>
